@@ -1,13 +1,23 @@
 #!/bin/bash
 
+WALLPAPERS_DIR=~/Pictures/wallpapers
+LAST_IMG_PATH=$(cat ~/.last_wallpaper)
 
-IMG_NAME=$(ls ~/Pictures/wallpapers | shuf -n 1)
+# Select a random image
+while true; do
+    IMG_NAME=$(ls $WALLPAPERS_DIR | shuf -n 1)
+    IMG_PATH=$WALLPAPERS_DIR/$IMG_NAME
+    if [ "$IMG_PATH" != "$LAST_IMG_PATH" ]; then
+        break
+    fi
+done
 
-IMG_PATH=~/Pictures/wallpapers/$IMG_NAME
-
-gradience-cli monet -n $IMG_NAME -p $IMG_PATH --theme dark
-gradience-cli apply -n $IMG_NAME --gtk both
+# Set the wallpaper
 wal -i $IMG_PATH -n
 swww img $IMG_PATH --transition-type any --transition-fps 75
+gradience-cli apply -p ~/.cache/wal/pywal_gtk_theme.json --gtk both
 swaync-client -rs
 swaync-client -R
+
+# Store the current image path
+echo "$IMG_PATH" > ~/.last_wallpaper

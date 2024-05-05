@@ -11,12 +11,13 @@
         "hyprland/workspaces"
     ],
     "modules-center": [
-        "clock","privacy"
+        "clock"
     ],
     "modules-right": [
         "pulseaudio",
         "network",
-        "battery"
+        "battery",
+        "privacy"
     ],
     // Modules configuration
     "hyprland/workspaces": {
@@ -29,19 +30,23 @@
             "2": "  ",
             "3": "  ",
             "4": "  ",
-            "urgent": "",
-            "focused": "",
+            // "urgent": "",
+            // "focused": "",
             "default": ""
         },
         "persistent-workspaces":{
-            "*":4
+            "1":[],
+            "2":[],
+            "3":[],
+            "4":[]
         }
     },
     
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "format-alt": "{:%Y-%m-%d}",
+        "format": "{:%I:%M %p}"
     },
 
     "cava": {
@@ -79,7 +84,6 @@
                 "format-charging": "󰂄 {capacity}%",
                 "format-charging-full": "󰂅 {capacity}%",
                 "format-full": "{icon} {capacity}%",
-                "format-alt": "{icon} {power}W",
                 "format-icons": [
                     "󰂃",
                     "󰁼",
@@ -125,12 +129,12 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "  {bandwidthDownBytes} ",
+        "format-wifi": "󰖩 {bandwidthDownBytes} ",
         "format-ethernet": "{ipaddr}/{cidr} ",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-disconnected": " 󰖪  ",
+        "interval": 5
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float

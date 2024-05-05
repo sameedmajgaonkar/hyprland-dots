@@ -1,10 +1,9 @@
-@import "/home/sameed/.cache/wal/colors-waybar.css";
+@import "../../.cache/wal/colors-waybar.css";
 
 @define-color bg @background;
 @define-color fg @foreground;
 @define-color textcolor @cursor;
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
     font-size: 14px;
 }
 
@@ -16,15 +15,6 @@ window#waybar {
 window#waybar.hidden {
     opacity: 0.2;
 }
-
-/*
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-*/
 
 window#waybar.termite {
     background-color: #3F3F3F;
@@ -41,21 +31,17 @@ window#waybar.chromium {
     border-radius: 100em;
     font-family: Iosevka;
 }
+
 button {
     font-weight:bold;
-    /* Use box-shadow instead of border so the text isn't offset */
-    box-shadow: inset 0 -3px transparent;
-    /* Avoid rounded borders under each button name */
+    /* box-shadow: inset 0 -3px transparent; */
     border: none;
     border-radius: 0;
     background-color: @fg;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-button:hover {
-    background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
-}
+
 
 #workspaces button {
     padding: 0 .5em;
@@ -67,21 +53,24 @@ button:hover {
     background: rgba(0, 0, 0, 0.2);
 }
 
-#workspaces button.active {
-    color: @bg;
-    background-color:@fg;
-    border-radius: 100em;
-    padding: 0 1em
-}
-
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    background-color: rgb(163, 37, 37);
+    color: @bg;
+    border-radius: 100em;
+    padding: 0 1em;
 }
 #workspaces button.empty {
     color: @color8;
 }
 #workspaces button.focused {
     color: @bg;
+}
+
+#workspaces button.active {
+    color: @bg;
+    background-color:@fg;
+    border-radius: 100em;
+    padding: 0 1em
 }
 
 #mode {
@@ -95,6 +84,7 @@ button:hover {
     color:@fg;
     padding: 0em 1em;
     border-radius: 100em;
+    font-weight:bold;
 }
 
 #battery {
@@ -119,7 +109,6 @@ button:hover {
     }
 }
 
-/* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
     background-color: #f53c3c;
     color: #ffffff;
@@ -158,22 +147,8 @@ label:focus {
     color: #000000;
 }
 
-#memory {
-    background-color: #9b59b6;
-}
-
-#disk {
-    background-color: #964B00;
-}
-
-#backlight {
-    background-color: #90b1b1;
-}
-
-
-
 #network.disconnected {
-    background-color: #f53c3c;
+    color: #f53c3c;
 }
 
 
